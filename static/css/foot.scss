@@ -1,0 +1,27 @@
+.foot {
+  position: relative;
+  padding: 40px;
+  background-color: #3e3f3a;
+  color: white;
+  h4 {
+    margin-bottom:20px;
+  }
+  .friend {
+    ul {
+      li {
+        list-style: none;
+        a {
+          color:#cccccc;
+          text-decoration: none;
+          padding-left: 10px;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+  .copyright {
+    position: absolute;
+    top:40px;
+    left:50%;
+  }
+}

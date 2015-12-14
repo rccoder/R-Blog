@@ -1,0 +1,25 @@
+.post {
+  .post-list {
+    margin: 100px auto;
+    overflow: hidden;
+  }
+  .bold {
+    font-weight:bold;
+  }
+  .title h3{
+    font-weight: bold;
+    font-size:40px;
+  }
+  .data {
+    float: right;
+    margin-left:20px;
+  }
+  .tag {
+    float: right;
+    margin-left:20px;
+  }
+  .class {
+    float: right;
+    margin-left:20px;
+  }
+}

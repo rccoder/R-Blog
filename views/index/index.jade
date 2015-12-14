@@ -1,0 +1,97 @@
+doctype html
+html(lang="en")
+    head
+        title= pageTitle
+        link(href='/dist/css/style.min.css', rel='stylesheet')
+        script(src='/dist/js/all.min.js')
+    body
+        header.head
+            div.container
+                div.head-logo
+                    a(href="#") R-Blog
+                nav.head-nav
+                    ul
+                        li.active
+                            a(href='#') HOME
+                        li
+                            a(href='#') TECH
+                        li
+                            a(href='#') LIFE
+                        li
+                            a(href='#') ABOUT
+
+        div.wrap
+            div.intro
+                h1 R-Blog
+                div.desc
+                    p Smart Blog Powered By Koa.js !
+                div.repo
+                    p
+                       a(href="#") R-Blog
+
+        div.post.container
+            div.post-list
+                div.title
+                    h3
+                     a(href="#") 文章测试
+                div.data
+                    span.bold 日期：
+                    span 2015-12-4
+                div.tag
+                    span.bold 标签：
+                    span
+                     a(href='#') 标签1
+                    span
+                     a(herf='#') 标签2
+                    span
+                     a(href='#') 标签3
+                div.class
+                    span.bold 分类：
+                    span
+                     a(href='#') 技术杂文
+            div.post-list
+                div.title
+                    h3 文章测试
+                div.data
+                    2015-12-4
+                div.other
+                    div.tag
+                        span 标签：
+                        span 标签1
+                        span 标签2
+                        span 标签3
+                    div.class
+                        span 分类：
+                        span 技术杂文
+            div.post-list
+                div.title
+                    h3 文章测试
+                div.data
+                    2015-12-4
+                div.other
+                    div.tag
+                        span 标签：
+                        span 标签1
+                        span 标签2
+                        span 标签3
+                    div.class
+                        span 分类：
+                        span 技术杂文
+        footer.foot
+            div.container
+                div.friend
+                    h4 友情链接
+                    ul
+                        li
+                            a(href='#') 链接一
+                        li
+                            a(href='#') 链接一
+                        li
+                            a(href='#') 链接一
+                        li
+                            a(href='#') 链接一
+
+                div.copyright
+                    h4 版权申明
+                    p Powered By R-Blog, based on koa.js
+                    p Copyright @ 2015
