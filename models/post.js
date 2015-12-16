@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+ObjectId = Schema.ObjectId;
+
 var PostSchema = new Schema({
     title: { type: String, required: true },
     content: { type: String, required: true },

@@ -5,9 +5,22 @@ var bodyparser = require('koa-bodyparser');
 var flash = require('koa-flash');
 var session = require('koa-generic-session');
 var MongoStore = require('koa-generic-session-mongo');
+var flash = require('koa-flash');
 
-//init app
+// init app
 var app = koa();
+
+// bodyparse
+app.use(bodyparser());
+
+// session
+app.keys = ['keys', 'keykeys'];
+app.use(session({
+    store: new MongoStore()
+}));
+
+// flash
+app.use(flash());
 
 // x-response-time
 app.use(function *(next) {
@@ -22,7 +35,7 @@ app.use(function *(next) {
     var start  = new Date();
     yield next;
     var ms = new Date() - start;
-    console.log('%s %s - %s', this.method, this.url, ms);
+    console.log('%s %s %s - %s', this.method, this.url, this.status, ms);
 });
 // static file
 app.use(koa_static_cache('./static'));

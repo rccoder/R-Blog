@@ -5,7 +5,7 @@ var url = 'mongodb://' + db.host + '/' + db.db_name;
 
 mongoose.connect(url, function (err) {
     if (err) {
-        console.log('connect to %s error:', config.url, err.message);
+        console.log('connect to %s error:', url, err.message);
         process.exit(1);
     }
 });

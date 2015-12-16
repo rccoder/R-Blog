@@ -1,11 +1,12 @@
 {
-  "name": "R-blog",
+  "name": "R-Blog",
   "version": "1.0.0",
   "description": "",
   "scripts": {},
   "author": "rccoder",
   "license": "ISC",
   "dependencies": {
+    "crypto": "0.0.3",
     "koa": "^1.1.2",
     "koa-bodyparser": "^2.0.1",
     "koa-flash": "^1.0.0",
