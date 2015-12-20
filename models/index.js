@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-var db = require('../config/db');
+var config = require('../config/config');
+var db = config.db;
 
 var url = 'mongodb://' + db.host + '/' + db.db_name;
 

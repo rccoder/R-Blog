@@ -7,20 +7,34 @@ var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var del = require('del');
 
-gulp.task('sass', function () {
-    return gulp.src('./static/css/style.scss')
+gulp.task('sass-style', function () {
+    return gulp.src('./static/css/style/style.scss')
         .pipe(sass())
         .pipe(rename({suffix: '.min'}))
         .pipe(minifycss({compatibility: 'ie8'}))
-        .pipe(gulp.dest('./static/dist/css'));
+        .pipe(gulp.dest('./static/dist/css/'));
 });
 
-gulp.task('script', function() {
-    return gulp.src('./static/js/*.js')
+gulp.task('sass-third', function() {
+    return gulp.src('./static/css/third/*.scss')
+        .pipe(sass())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(minifycss({compatibility: 'ie8'}))
+        .pipe(gulp.dest('./static/dist/css/'))
+})
+
+gulp.task('script-style', function() {
+    return gulp.src('./static/js/style/*.js')
         .pipe(concat('all.js'))
         .pipe(rename('all.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('./static/dist/js'));
+        .pipe(gulp.dest('./static/dist/js/'));
+});
+
+gulp.task('script-third', function() {
+    return gulp.src('./static/js/third/*.js')
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('./static/dist/js/'))
 });
 
 gulp.task('clean', function(callback) {
@@ -28,13 +42,13 @@ gulp.task('clean', function(callback) {
 });
 
 gulp.task('default', function() {
-    gulp.run('sass', 'script', 'clean');
+    gulp.run('sass-style', 'sass-third', 'script-style', 'script-third', 'clean');
 
-    gulp.watch('./static/css/*.scss', function() {
+    gulp.watch('./static/css/*', function() {
         gulp.run('sass', 'script', 'clean');
     });
 
-    gulp.watch('./static/js/*.js', function() {
+    gulp.watch('./static/js/*', function() {
         gulp.run('sass', 'script', 'clean');
     });
 });

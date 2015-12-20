@@ -8,9 +8,21 @@ var PostSchema = new Schema({
     content: { type: String, required: true },
     date: { type: Date, default: Date.now },
     pv: { type: Number, default: 0 },
-    class_id: { type: ObjectId, required: true },
-    tag_id: { type: ObjectId, required: true },
-    user_id: { type: ObjectId, required: true },
+    class: { type: String, default: 'None' },
+    class_id: {
+        type: ObjectId,
+        ref: 'Class'
+    },
+    tag : [{ type: String }],
+    tag_id: [{
+        type: ObjectId,
+        ref: 'Tag'
+    }],
+    user: { type: String },
+    user_id: {
+        type: ObjectId,
+        ref: 'Tag'
+    },
 });
 
 PostSchema.index({date: -1});
