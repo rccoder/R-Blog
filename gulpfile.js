@@ -42,13 +42,13 @@ gulp.task('clean', function(callback) {
 });
 
 gulp.task('default', function() {
-    gulp.run('sass-style', 'sass-third', 'script-style', 'script-third', 'clean');
+    gulp.run( 'clean', 'sass-style', 'sass-third', 'script-style', 'script-third');
 
-    gulp.watch('./static/css/*', function() {
-        gulp.run('sass', 'script', 'clean');
+    gulp.watch('./static/css/**', function() {
+        gulp.run( 'clean', 'sass-style', 'sass-third', 'script-style', 'script-third');
     });
 
-    gulp.watch('./static/js/*', function() {
-        gulp.run('sass', 'script', 'clean');
+    gulp.watch('./static/js/**', function() {
+        gulp.run( 'clean', 'sass-style', 'sass-third', 'script-style', 'script-third');
     });
 });

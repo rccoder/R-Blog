@@ -23,6 +23,7 @@ var PostSchema = new Schema({
         type: ObjectId,
         ref: 'Tag'
     },
+    url: { type: String },
 });
 
 PostSchema.index({date: -1});

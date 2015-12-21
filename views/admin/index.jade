@@ -25,15 +25,15 @@ html(lang="en")
                         li
                             a(href='#') ABOUT
 
-        div.admin-post
+        div.admin-post.container
             form(method='POST', action='/admin/post')
-                input(name='title')
-                label 标签
-                input(name='tag', type='text')
-                input(name='tag', type='text')
-                input(name='tag', type='text')
-                label 分类
-                input(name='class', type='text')
+                input(name='title', class='title', placeholder='标题')
+                div.tag-list
+                    input(name='tag', type='text', class='tag', placeholder='标签')
+                    input(name='tag', type='text', class='tag', placeholder='标签')
+                    input(name='tag', type='text', class='tag', placeholder='标签')
+                input(name='class', type='text', class='class', placeholder='分类')
+                input(name='url', type='text', class='url', placeholder='自定义网址')
                 div.editor
                     textarea(id='myEditor' name='content')
                 button(type='submit') 发表文章

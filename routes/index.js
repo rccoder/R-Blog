@@ -9,6 +9,8 @@ var site = require('../config/config').site;
 var $User = Models.$User();
 var $Post = Models.$Post();
 
+var markdown = require('markdown').markdown;
+var marked = require('marked')
 var register = function (app) {
 
     var router = new koa_router();
@@ -16,6 +18,10 @@ var register = function (app) {
     router.get('/', function *() {
 
         var posts = yield $Post.getAllPost();
+
+
+        console.log(posts)
+
         this.render('index/index',
             {
                 site: site,
@@ -61,7 +67,8 @@ var register = function (app) {
 
         var userInfo = yield $User.getUserByName(data.name);
 
-        console.log(userInfo)
+        console.log(userInfo);
+
         if (!userInfo || (userInfo.password != data.password)) {
             this.flash = {error: '用户不存在或密码错误'};
             return this.redirect('/');
@@ -76,6 +83,26 @@ var register = function (app) {
         return this.redirect('/admin');
 
     });
+
+    router.get('/post/:url', function *(next) {
+        var url = this.params.url;
+
+        var post = yield $Post.getPostByUrl(url);
+
+        console.log(post)
+        //post.content = markdown.toHTML(post.content);
+        post.content = marked(post.content);
+
+        console.log(post);
+
+        this.render('index/post',
+            {
+                site: site,
+                flash: this.flash,
+                post: post
+            }
+        );
+    })
 
     app.use(router.routes());
     app.use(router.allowedMethods());

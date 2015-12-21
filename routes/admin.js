@@ -32,6 +32,7 @@ var register = function (app) {
     router.post('/post', function *(next) {
         var data = this.request.body;
 
+        console.log(data)
         yield $Post.addPost(data);
 
         this.flash = {success: '发表成功'};
